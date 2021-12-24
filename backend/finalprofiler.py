@@ -6,7 +6,6 @@ df1 = pd.read_pickle('finalDFimp.pkl')
 
 print(len(df1))
 
-
 for inx, rows in df1.iterrows():
     if rows[8] == None:
         df1.drop(inx)
