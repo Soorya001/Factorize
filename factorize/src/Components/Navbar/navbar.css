@@ -1,0 +1,10 @@
+
+
+.logoimg {
+    height: 70px;
+    width: 150px;
+}
+
+a:hover{
+    box-shadow: lightblue 3px 3px;
+}
