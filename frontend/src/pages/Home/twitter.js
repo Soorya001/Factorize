@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import './twitter.css'
 
 const Twitter = () => {
 
@@ -7,6 +8,7 @@ const Twitter = () => {
     const [showuser, setShowUser] = useState(0)
     const [recdata, setRecData] = useState({})
     const [links, setLinks] = useState([])
+    const [correctLink, setCorrectLink] = useState(true)
 
     const nameEl = React.useRef(null);
 
@@ -22,6 +24,7 @@ const Twitter = () => {
 
         const data = {val}
         const response = await fetch("/tlink", {
+                timeout: 1000,
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -35,7 +38,10 @@ const Twitter = () => {
         }
 
         else 
+        {
             console.log("failed:")
+            alert("Please enter correct tweet link")
+        }
 
         console.log("inside")
     }    
@@ -72,14 +78,14 @@ const Twitter = () => {
                     </div>
                     <div className="col-9">
                         <div className="form-group my-md-5">
-                            <input type="text" name="tlink" class="form-control form-control-lg" placeholder="Enter Twitter Link" onChange={handleChange} ref={nameEl}/>
+                            <input type="text" name="tlink" class="form-control form-control-lg bg-light" placeholder="Enter Twitter Link" onChange={handleChange} ref={nameEl}/>
                         </div>
                     </div>
                 </div>
 
                 <div className="row">
                     <div className="d-grid gap-2 col-2   mx-auto mb-sm-3 mb-md-4">
-                        <button type="submit" value="submit" className="btn btn-primary" onClick={submitLink}>
+                        <button type="submit" value="submit" className="glow-on-hover" onClick={submitLink}>
                         Submit
                         </button>
                     </div> 
@@ -89,7 +95,7 @@ const Twitter = () => {
 
                 {showuser > 0 && 
                     <div>
-                        <div className="card bg-light-gray col-sm-6 mx-auto">
+                        <div className="card bg-light-gray text-dark col-sm-6 mx-auto">
                             <div className="card-header text-center">
                                 <h4 className="card-title">Name: {recdata['data']['name']}</h4>
                             </div>
@@ -100,26 +106,27 @@ const Twitter = () => {
                                     <h5 className="card-subtitle mb-2" text-muted> @{recdata['data']['screen_name']}</h5>
                                 </div>
                                 <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
+                                    <li class="list-group-item imppp">
                                         <h4>Prediction: {recdata['pred']}</h4>
                                     </li>
-                                    <li class="list-group-item">
+                                    <li class="list-group-item imppp">
                                         <h5>Tweets: {recdata['data']['statuses_count']}</h5>
                                     </li>
-                                    <li class="list-group-item">
+                                    <li class="list-group-item imppp">
                                         <h5>Followers: {recdata['data']['followers_count']} &nbsp;&nbsp;&&nbsp;&nbsp; Following: {recdata['data']['friends_count']}</h5>
                                     </li>
-                                    <li class="list-group-item">
+                                    <li class="list-group-item imppp">
                                         <h5>Verified: {recdata['data']['verified'] > 0 ? "True" : "False"}</h5>
                                     </li>                            
                                 </ul>
                             </div>
                         </div>
-                        <div className="mt-5"> 
-                            <h2 className = "ml-5">Links realted to the tweet:</h2>
+                        <div className="mt-5 pt-2"> 
+                            <h2 className = "ml-5">Links related to the tweet:</h2>
                         </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">
+
+                        <ul class="list-group list-group-flush pb-3 pt-2">
+                            <li class="list-group-item imppp">
                             <div class="row">
                                 <div class="col-12 text-truncate">
                                 <h5>
@@ -132,7 +139,7 @@ const Twitter = () => {
                                 </div>
                             </div>
                             </li>
-                            <li class="list-group-item">
+                            <li class="list-group-item imppp">
                             <div class="row">
                                 <div class="col-12 text-truncate">
                                 <h5>
@@ -145,7 +152,7 @@ const Twitter = () => {
                                 </div>
                             </div>
                             </li>
-                            <li class="list-group-item">
+                            <li class="list-group-item imppp">
                             <div class="row">
                                 <div class="col-12 text-truncate">
                                 <h5>
@@ -158,7 +165,7 @@ const Twitter = () => {
                                 </div>
                             </div>
                             </li>
-                            <li class="list-group-item">
+                            <li class="list-group-item imppp">
                             <div class="row">
                                 <div class="col-12 text-truncate">
                                 <h5>
@@ -171,7 +178,7 @@ const Twitter = () => {
                                 </div>
                             </div>
                             </li>    
-                            <li class="list-group-item">
+                            <li class="list-group-item imppp">
                             <div class="row">
                                 <div class="col-12 text-truncate">
                                 <h5>
@@ -185,8 +192,8 @@ const Twitter = () => {
                             </div>
                             </li>                            
                         </ul>  
-                    </div>       
-                }       
+                        </div>
+                } 
 
         </div>
     </>

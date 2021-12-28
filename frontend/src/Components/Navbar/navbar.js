@@ -22,9 +22,9 @@ const Navbar = () => {
       </button>
 
       <div class={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse justify-content-end`} id="navbarsExample09">
-        <a className="nav-link text-info border border-primary rounded px-md-2 mx-md-1" href="/learn">Learn How it Works</a>
-        <a className="nav-link text-info border border-primary rounded px-md-2 mx-md-1" href="/about">Why myApp?</a>
-        <a href="/contact" className="btn btn-sm btn-info nav-link text-white mx-md-2" >Contact Me</a> 
+        <a className="nav-link text-dark border border-primary rounded px-md-2 mx-md-1" href="/learn">Learn How it Works</a>
+        <a className="nav-link text-dark border border-primary rounded px-md-2 mx-md-1" href="/about">Why myApp?</a>
+        <a href="/contact" className="btn btn-sm btn-primary nav-link text-white mx-md-2" >Contact Me</a> 
       </div>
 
     </nav>
