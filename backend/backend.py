@@ -28,7 +28,7 @@ api = tweepy.API(auth)
 app = Flask(__name__, static_url_path='', static_folder='../frontend/build')
 CORS(app)
 
-model = pickle.load(open('./modelimp.pkl', 'rb'))
+model = pickle.load(open('backend/modelimp.pkl', 'rb'))
 
 toret = int(0)
 user = {}
