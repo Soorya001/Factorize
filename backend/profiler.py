@@ -1,9 +1,9 @@
 import numpy as np
 import pandas as pd
 
-data = pd.read_json('../dataset/gilani-2017_tweets.json')
+data = pd.read_json('gilani-2017_tweets.json')
 
-lables = pd.read_csv('../dataset/gilani-2017.tsv', sep='\t')
+lables = pd.read_csv('gilani-2017.tsv', sep='\t')
 
 
 id = []
