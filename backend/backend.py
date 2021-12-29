@@ -131,7 +131,7 @@ def send_scrap():
 
     user_input = user['stattext']
     print("GOING TO SEARCH: ", user_input)
-    links = search(user_input)
+    links = list(search(user_input))
 
     return json.dumps({'links': links[:5]})
 
