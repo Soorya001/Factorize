@@ -2,7 +2,6 @@ import json
 import numpy as np
 import pandas as pd
 from flask import Flask, redirect, url_for, request, jsonify, render_template, request, send_from_directory
-from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS #comment this on deployment
 
 import pickle
@@ -144,5 +143,5 @@ def det_flink():
         print(data)
         return 'Done'
 
-if __name__ == "__main__":
-    app.run(debug=True)
+# if __name__ == "__main__":
+#     app.run(debug=True)
