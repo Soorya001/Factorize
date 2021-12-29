@@ -1,7 +1,10 @@
 import json
 import numpy as np
 import pandas as pd
-from flask import Flask, redirect, url_for, request, jsonify, render_template, request
+from flask import Flask, redirect, url_for, request, jsonify, render_template, request, send_from_directory
+from flask_restful import Api, Resource, reqparse
+from flask_cors import CORS #comment this on deployment
+
 import pickle
 import tweepy
 from datetime import datetime
@@ -22,15 +25,18 @@ auth.set_access_token("1274289861495681024-MJ1kdu2nMAIZMgHGIKD31FlLDJ0wv9", "wMv
 
 api = tweepy.API(auth)
 
-# public_tweets = api.home_timeline()
-# for tweet in public_tweets:
-#     print(tweet.text)
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='../frontend/build')
+CORS(app)
+
 model = pickle.load(open('./modelimp.pkl', 'rb'))
 
 toret = int(0)
 user = {}
+
+@app.route("/", defaults={'path':''})
+def serve(path):
+    return send_from_directory(app.static_folder,'index.html')
 
 
 @app.route('/test', methods=['GET'])
