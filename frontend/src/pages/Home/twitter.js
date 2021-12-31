@@ -24,7 +24,7 @@ const Twitter = () => {
 
         const data = {val}
         const response = await fetch("/tlink", {
-                timeout: 1000,
+                timeout: 5000,
                 method: "POST",
                 headers: {
                     'Content-Type': 'application/json'
@@ -92,7 +92,6 @@ const Twitter = () => {
                 </div>
                 
                 
-
                 {showuser > 0 && 
                     <div>
                         <div className="card bg-light-gray text-dark col-sm-6 mx-auto">
