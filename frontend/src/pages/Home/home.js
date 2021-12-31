@@ -14,7 +14,7 @@ const Home = () => {
     
 //    }, []);
 
-   console.log('time is: ',currentTime)   
+//    console.log('time is: ',currentTime)   
 
     return <>
         <div style={{
