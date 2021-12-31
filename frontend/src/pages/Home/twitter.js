@@ -78,7 +78,7 @@ const Twitter = () => {
                     </div>
                     <div className="col-9">
                         <div className="form-group my-md-5">
-                            <input type="text" name="tlink" class="form-control form-control-lg bg-light" placeholder="Enter Twitter Link" onChange={handleChange} ref={nameEl}/>
+                            <input type="text" name="tlink" class="form-control form-control-lg bg-light" placeholder="Enter Tweet Link" onChange={handleChange} ref={nameEl}/>
                         </div>
                     </div>
                 </div>
